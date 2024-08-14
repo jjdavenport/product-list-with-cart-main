@@ -1,4 +1,4 @@
-import greenIcon from "./assets/images/icon-carbon-neutral.svg"
+import greenIcon from ".public/assets/images/icon-carbon-neutral.svg"
 
 const Cart = () => {
     return (
