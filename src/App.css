@@ -576,18 +576,21 @@ video {
   height: 2.5rem;
 }
 
+.h-4{
+  height: 1rem;
+}
+
 .h-fit{
   height: -moz-fit-content;
   height: fit-content;
 }
 
-.h-screen{
-  height: 100vh;
+.h-5{
+  height: 1.25rem;
 }
 
-.h-max{
-  height: -moz-max-content;
-  height: max-content;
+.w-4{
+  width: 1rem;
 }
 
 .w-fit{
@@ -595,17 +598,8 @@ video {
   width: fit-content;
 }
 
-.w-screen{
-  width: 100vw;
-}
-
-.w-10{
-  width: 2.5rem;
-}
-
-.w-max{
-  width: -moz-max-content;
-  width: max-content;
+.w-5{
+  width: 1.25rem;
 }
 
 .flex-col{
@@ -624,8 +618,8 @@ video {
   justify-content: space-between;
 }
 
-.justify-evenly{
-  justify-content: space-evenly;
+.gap-10{
+  gap: 2.5rem;
 }
 
 .gap-2{
@@ -636,24 +630,21 @@ video {
   gap: 1rem;
 }
 
-.gap-10{
-  gap: 2.5rem;
-}
-
-.gap-6{
-  gap: 1.5rem;
-}
-
-.gap-8{
-  gap: 2rem;
-}
-
 .rounded-full{
   border-radius: 9999px;
 }
 
 .rounded-lg{
   border-radius: 0.5rem;
+}
+
+.border-2{
+  border-width: 2px;
+}
+
+.border-white{
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .bg-redC{
@@ -688,31 +679,6 @@ video {
 .py-2{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
-
-.px-10{
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
-.py-10{
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.py-6{
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.px-8{
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
 .font-custom{
@@ -762,6 +728,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.outline-none{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .outline{
   outline-style: solid;
 }
@@ -770,8 +741,12 @@ video {
   outline-width: 2px;
 }
 
-.outline-roseC-100{
-  outline-color: hsl(13, 31%, 94%);
+.outline-white{
+  outline-color: #fff;
+}
+
+.outline-redC{
+  outline-color: hsl(14, 86%, 42%);
 }
 
 .hover\:bg-roseC-900:hover{
@@ -779,8 +754,21 @@ video {
   background-color: hsl(14 65% 9% / var(--tw-bg-opacity));
 }
 
+.hover\:bg-white:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.hover\:stroke-redC:hover{
+  stroke: hsl(14, 86%, 42%);
+}
+
 .hover\:outline:hover{
   outline-style: solid;
+}
+
+.hover\:outline-1:hover{
+  outline-width: 1px;
 }
 
 .hover\:outline-redC:hover{

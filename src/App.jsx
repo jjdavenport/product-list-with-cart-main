@@ -6,7 +6,7 @@ import Products from "./components/products"
 function App() {
   return (
     <>
-      <main className="bg-roseC-100 h-screen w-screen font-custom flex flex-col p-4 gap-4">
+      <main className="bg-roseC-100 font-custom flex flex-col p-4 gap-4">
         <Header />
         <Products />
         <Footer />
