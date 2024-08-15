@@ -572,12 +572,16 @@ video {
   display: flex;
 }
 
+.grid{
+  display: grid;
+}
+
 .h-10{
   height: 2.5rem;
 }
 
-.h-4{
-  height: 1rem;
+.h-5{
+  height: 1.25rem;
 }
 
 .h-fit{
@@ -585,21 +589,13 @@ video {
   height: fit-content;
 }
 
-.h-5{
-  height: 1.25rem;
-}
-
-.w-4{
-  width: 1rem;
+.w-5{
+  width: 1.25rem;
 }
 
 .w-fit{
   width: -moz-fit-content;
   width: fit-content;
-}
-
-.w-5{
-  width: 1.25rem;
 }
 
 .flex-col{
@@ -741,10 +737,6 @@ video {
   outline-width: 2px;
 }
 
-.outline-white{
-  outline-color: #fff;
-}
-
 .outline-redC{
   outline-color: hsl(14, 86%, 42%);
 }
@@ -773,4 +765,24 @@ video {
 
 .hover\:outline-redC:hover{
   outline-color: hsl(14, 86%, 42%);
+}
+
+@media (min-width: 768px){
+  .md\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-rows-2{
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .xl\:grid-rows-3{
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
 }
