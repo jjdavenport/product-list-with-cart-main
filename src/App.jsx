@@ -1,14 +1,12 @@
 import Footer from "./components/footer";
 import Header from "./components/header";
-import "./App.css";
 import Products from "./components/products";
 import EmptyCart from "./components/empty-cart";
 import Cart from "./components/cart";
 import { useMediaQuery } from "react-responsive";
 
 function App() {
-   // Use min-width to detect tablet and above
-   const tablet = useMediaQuery({ query: "(min-width: 768px)" });
+   const tablet = useMediaQuery({ minWidth: 768 });
 
    return (
       <>
