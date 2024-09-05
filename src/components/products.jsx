@@ -9,8 +9,8 @@ const [button, setButton] = useState([])
 const click = (category) => {
   setButton((prev) => [...prev, category]);
 }
-const tablet = useMediaQuery({ query: "(min-width: 768px)" });
-const desktop = useMediaQuery({ query: "(min-width: 1024px)" });
+const tablet = useMediaQuery({ minWidth: 768 });
+const desktop = useMediaQuery({ minWidth: 1024 });
   return (
     <>
     {data.map((i) => 

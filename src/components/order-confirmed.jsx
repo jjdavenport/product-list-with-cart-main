@@ -1,24 +1,17 @@
-import Confirmed from "./assets/button-components/images/icon-order-confirmed.svg"
-import { useState } from "react"
+import confirmed from "./assets/button-components/images/icon-order-confirmed.svg"
 
-const OrderConfirmed = () => {
-    const [popup, setPopup] = useState(true)
-    const click = () => {
-        setPopup(true)
-    }
+const Modal = ({ close }) => {
     return (
-        <>
-        {popup (
-   <dialog>
-   <img src={Confirmed} />
+    <>
+   <dialog className="block p-4 rounded-lg">
+   <img src={confirmed} />
    <span>Order Confirmed</span>
    <p>We hope you enjoy your food!</p>
    <button
-   onClick={click}
+   onClick={() => close(false)}
    className="rounded-full text-white bg-redC">Start New Order</button>
-</dialog>)}
- </>
-    )
-}
+    </dialog>
+    </> 
+    )}
 
-export default OrderConfirmed
+export default Modal

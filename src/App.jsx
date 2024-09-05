@@ -21,7 +21,7 @@ function App() {
                         <Products />
                         </div>
                      </div>
-                     <EmptyCart />
+                     <Cart />
                   </section>
                <Footer />
                </div>
@@ -31,7 +31,7 @@ function App() {
             <main className="bg-roseC-100 font-custom flex flex-col p-4 gap-4">
                <Header />
                <Products />
-               <EmptyCart />
+               <Cart />
                <Footer />
             </main>
          )}
