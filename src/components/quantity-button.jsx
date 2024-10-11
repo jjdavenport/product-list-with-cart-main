@@ -1,19 +1,29 @@
 import { useState } from "react";
 
-const QuantityButton = ({ onClick }) => {
+const QuantityButton = ({ onClick, quantity }) => {
   const [count, setCount] = useState(0);
+
   const plus = () => {
-    setCount((prevCount) => prevCount + 1);
+    setCount((prevCount) => {
+      const orderCount = prevCount + 1;
+      quantity(orderCount);
+      return orderCount;
+    });
   };
+
   const minus = () => {
     if (count === 0) {
       onClick();
     } else {
-      setCount((prevCount) => prevCount - 1);
+      setCount((prevCount) => {
+        const orderCount = prevCount - 1;
+        setCount(orderCount);
+        return orderCount;
+      });
     }
   };
   return (
-    <div className="flex h-fit w-fit items-center justify-between gap-10 rounded-full bg-redC px-4 py-2 text-white">
+    <div className="-mt-6 flex h-fit w-fit items-center justify-between gap-10 rounded-full bg-redC px-4 py-2 text-white">
       <button
         onClick={minus}
         className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-white hover:bg-white hover:stroke-redC"

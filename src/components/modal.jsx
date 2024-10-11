@@ -1,16 +1,13 @@
-import confirmed from "./button-components/images/icon-order-confirmed.svg";
+import confirmed from "./assets/icon-order-confirmed.svg";
 
-const Modal = ({ close }) => {
+const Modal = ({ onClose }) => {
   return (
     <>
       <dialog className="block rounded-lg p-4">
         <img src={confirmed} />
         <span>Order Confirmed</span>
         <p>We hope you enjoy your food!</p>
-        <button
-          onClick={() => close(false)}
-          className="rounded-full bg-redC text-white"
-        >
+        <button onClick={onClose} className="rounded-full bg-redC text-white">
           Start New Order
         </button>
       </dialog>

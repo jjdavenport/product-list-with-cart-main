@@ -1,10 +1,7 @@
-import greenIcon from "./button-components/images/icon-carbon-neutral.svg";
-import { useState } from "react";
+import greenIcon from "./assets/icon-carbon-neutral.svg";
 import Modal from "./modal";
 
-const Cart = () => {
-  const [modal, setModal] = useState(false);
-  const open = () => setModal(true);
+const Cart = ({ modal, setModal, onClose }) => {
   return (
     <>
       <section className="flex h-fit flex-col gap-2 rounded-lg bg-roseC-50 p-4">
@@ -18,13 +15,13 @@ const Cart = () => {
           This is a carbon neutral delivery
         </span>
         <button
-          onClick={open}
+          onClick={() => setModal(true)}
           className="h-10 rounded-full bg-redC text-white hover:bg-roseC-900"
         >
           Confirm order
         </button>
       </section>
-      {modal && <Modal close={setModal} />}
+      {modal && <Modal onClose={onClose} />}
     </>
   );
 };

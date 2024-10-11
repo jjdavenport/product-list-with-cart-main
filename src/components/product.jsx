@@ -2,23 +2,33 @@ import Button from "./button";
 import QuantityButton from "./quantity-button";
 import { useState } from "react";
 
-const Product = ({ img, name, price, category }) => {
+const Product = ({ img, name, price, category, order }) => {
   const [button, setButton] = useState(false);
   const toggle = () => {
     setButton(!button);
   };
+
+  const change = (quantity) => {
+    order({ price }, quantity);
+  };
+
   return (
     <>
-      <article>
+      <article className="flex flex-col items-center gap-1">
+        <img
+          src={img}
+          className={`${button && "outline outline-2 outline-redC"} rounded-lg`}
+        />
         {button ? (
-          <QuantityButton onClick={toggle} />
+          <QuantityButton quantity={change} onClick={toggle} />
         ) : (
           <Button onClick={toggle} />
         )}
-        <img src={img} />
-        <span>{category}</span>
-        <span>{name}</span>
-        <span>{price}</span>
+        <div className="flex w-full flex-col items-start gap-1">
+          <span>{category}</span>
+          <span>{name}</span>
+          <span>{price}</span>
+        </div>
       </article>
     </>
   );
