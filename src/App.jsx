@@ -18,35 +18,56 @@ function App() {
     setModal(false);
   };
 
-  const orderItems = () => {
-    setOrder([]);
-  };
   return (
     <>
-      <div className="flex h-full min-h-screen flex-col gap-4">
-        <div className="flex flex-col gap-4 p-4 md:flex-row">
-          <div className="flex flex-col gap-4">
-            <Header />
-            <main className="flex flex-col gap-4 md:grid md:grid-cols-2 lg:grid-cols-3">
-              {data.map((i, index) => (
-                <Product
-                  order={orderItems}
-                  key={index}
-                  img={
-                    desktop
-                      ? i.image.desktop
-                      : tablet
-                        ? i.image.tablet
-                        : i.image.mobile
-                  }
-                  category={i.category}
-                  name={i.name}
-                  price={i.price}
-                />
-              ))}
-            </main>
-          </div>
-          {order.length >= 0 ? (
+      <div className="flex h-full min-h-screen flex-col bg-roseC-50 ~sm/md:~gap-4/0">
+        <div className="flex flex-1 flex-col gap-8 text-base ~sm/xl:~px-4/28 ~sm/xl:~py-4/20 md:flex-row">
+          {tablet ? (
+            <>
+              <div className="flex flex-col gap-8">
+                <Header />
+                <main className="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+                  {data.map((i, index) => (
+                    <Product
+                      key={index}
+                      img={
+                        desktop
+                          ? i.image.desktop
+                          : tablet
+                            ? i.image.tablet
+                            : i.image.mobile
+                      }
+                      category={i.category}
+                      name={i.name}
+                      price={i.price}
+                    />
+                  ))}
+                </main>
+              </div>
+            </>
+          ) : (
+            <>
+              <Header />
+              <main className="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+                {data.map((i, index) => (
+                  <Product
+                    key={index}
+                    img={
+                      desktop
+                        ? i.image.desktop
+                        : tablet
+                          ? i.image.tablet
+                          : i.image.mobile
+                    }
+                    category={i.category}
+                    name={i.name}
+                    price={i.price}
+                  />
+                ))}
+              </main>
+            </>
+          )}
+          {order.length > 0 ? (
             <Cart
               setModal={setModal}
               modal={modal}

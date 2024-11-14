@@ -2,32 +2,43 @@ import Button from "./button";
 import QuantityButton from "./quantity-button";
 import { useState } from "react";
 
-const Product = ({ img, name, price, category, order }) => {
+const Product = ({ img, name, price, category }) => {
   const [button, setButton] = useState(false);
   const toggle = () => {
     setButton(!button);
   };
 
-  const change = (quantity) => {
-    order({ price }, quantity);
-  };
-
   return (
     <>
-      <article className="flex flex-col items-center gap-1">
+      <article className="flex flex-col items-center ~sm/md:~gap-2/0">
         <img
           src={img}
-          className={`${button && "outline outline-2 outline-redC"} rounded-lg`}
+          className={`${
+            button ? "outline-offset-0 outline-redC" : "outline-transparent"
+          } rounded-lg outline outline-2 transition-all duration-300 ease-in-out`}
         />
-        {button ? (
-          <QuantityButton quantity={change} onClick={toggle} />
-        ) : (
-          <Button onClick={toggle} />
-        )}
-        <div className="flex w-full flex-col items-start gap-1">
-          <span>{category}</span>
-          <span>{name}</span>
-          <span>{price}</span>
+        <div className="relative flex h-12 w-full justify-center ~sm/md:~-mt-8/6">
+          <div
+            className={`absolute transition-all duration-300 ease-in-out ${
+              button ? "z-10 scale-90 opacity-0" : "z-20 scale-100 opacity-100"
+            }`}
+          >
+            <Button onClick={toggle} />
+          </div>
+          <div
+            className={`absolute transition-all duration-300 ease-in-out ${
+              button ? "z-20 scale-100 opacity-100" : "z-10 scale-90 opacity-0"
+            }`}
+          >
+            <QuantityButton onClick={toggle} />
+          </div>
+        </div>
+        <div className="flex w-full flex-col items-start">
+          <span className="text-sm text-roseC-400">{category}</span>
+          <span className="whitespace-nowrap font-semibold text-roseC-900">
+            {name}
+          </span>
+          <span className="font-semibold text-redC">${price.toFixed(2)}</span>
         </div>
       </article>
     </>
