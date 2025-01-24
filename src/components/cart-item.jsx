@@ -1,12 +1,19 @@
-import icon from "./assets/icon-remove-item.svg";
+import icon from "../assets/icon-remove-item.svg";
 
-const CartItem = ({ order }) => {
+const CartItem = ({ item, quantity, price }) => {
   return (
     <div className="flex justify-between">
-      <div></div>
-      <div>
-        <img src={icon} />
+      <div className="flex flex-col">
+        <span>{item}</span>
+        <div>
+          <span>{quantity}</span>
+          <span>@ {price}</span>
+          <span>{price * quantity}</span>
+        </div>
       </div>
+      <button>
+        <img src={icon} />
+      </button>
     </div>
   );
 };

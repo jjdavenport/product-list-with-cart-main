@@ -3,7 +3,7 @@ import fluid, { extract, screens } from "fluid-tailwind";
 /** @type {import('tailwindcss').Config} */
 export default {
   content: {
-    files: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
+    files: ["./src/**/*.{js,jsx}"],
     extract,
   },
   theme: {

@@ -1,9 +1,9 @@
-import Footer from "./components/footer";
-import Header from "./components/header";
-import data from "./components/assets/data.json";
-import Product from "./components/product";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
+import Footer from "./components/footer";
+import Header from "./components/header";
+import data from "./assets/data.json";
+import Product from "./components/product";
 import Cart from "./components/cart";
 import EmptyCart from "./components/empty-cart";
 
