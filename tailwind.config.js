@@ -20,6 +20,7 @@ export default {
           500: "hsl(12, 20%, 44%)",
           900: "hsl(14, 65%, 9%)",
         },
+        hoverButton: "hsl(14, 85%, 32%)",
       },
       fontFamily: {
         custom: ["red hat text", "sans-serif"],

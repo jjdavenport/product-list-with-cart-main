@@ -35,7 +35,7 @@ function App() {
               ))}
             </main>
           </div>
-          {order.length > 0 ? (
+          {order.length > -1 ? (
             <Cart
               onClick={() => setModal(true)}
               modal={modal}

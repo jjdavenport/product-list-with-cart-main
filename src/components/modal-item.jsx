@@ -1,19 +1,21 @@
-const ModalItem = ({ thumbnail, price, item, quantity }) => {
+const ModalItem = ({ item }) => {
   return (
     <>
-      <div className="flex justify-between">
+      <li className="flex justify-between">
         <div className="flex">
-          <img src={thumbnail} />
+          <img src={item.thumbnail} />
           <div className="flex flex-col">
             <span>{item}</span>
             <div className="flex">
-              <span>{quantity}</span>
-              <span>@ {price}</span>
+              <span>{item.quantity}</span>
+              <span>{item.price}</span>
             </div>
           </div>
         </div>
-        <span>{quantity * price}</span>
-      </div>
+        <span className="font-medium text-roseC-900">
+          {item.quantity * item.price}
+        </span>
+      </li>
     </>
   );
 };
