@@ -2,7 +2,7 @@ import icon from "../assets/icon-carbon-neutral.svg";
 import Modal from "./modal";
 import CartItem from "./cart-item";
 
-const Cart = ({ modal, setModal, onClose, order }) => {
+const Cart = ({ modal, onClick, onClose, order }) => {
   return (
     <>
       <section className="flex h-fit flex-col gap-2 rounded-lg bg-roseC-50 p-4">
@@ -21,7 +21,7 @@ const Cart = ({ modal, setModal, onClose, order }) => {
           This is a carbon neutral delivery
         </span>
         <button
-          onClick={() => setModal(true)}
+          onClick={onClick}
           className="h-10 rounded-full bg-redC text-white hover:bg-roseC-900"
         >
           Confirm order
