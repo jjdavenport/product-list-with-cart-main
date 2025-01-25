@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import confirmed from "../assets/icon-order-confirmed.svg";
 import ModalItem from "./modal-item";
 
-const Modal = ({ onClose, item }) => {
+const Modal = ({ onClose, item, tablet }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -18,9 +18,9 @@ const Modal = ({ onClose, item }) => {
   });
 
   const dialogTransitions = useTransition(isOpen, {
-    from: { transform: "translateY(100%)" },
-    enter: { transform: "translateY(0%)" },
-    leave: { transform: "translateY(100%)" },
+    from: tablet ? { opacity: 0 } : { transform: "translateY(100%)" },
+    enter: tablet ? { opacity: 1 } : { transform: "translateY(0%)" },
+    leave: tablet ? { opacity: 0 } : { transform: "translateY(100%)" },
     config: { tension: 170, friction: 26 },
   });
 

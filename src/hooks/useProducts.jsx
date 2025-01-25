@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 
-const useProducts = ({ desktop }) => {
+const useProducts = ({ tablet }) => {
   const [order, setOrder] = useState([]);
   const [modal, setModal] = useState(false);
+
   const reset = () => {
     setOrder([]);
     setModal(false);
   };
 
   useEffect(() => {
-    !desktop && modal
+    !tablet && modal
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
-  }, [modal, desktop]);
+  }, [modal, tablet]);
 
   const [product, setProduct] = useState({
     id: new Date(),

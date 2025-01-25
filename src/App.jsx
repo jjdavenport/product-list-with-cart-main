@@ -12,7 +12,7 @@ function App() {
   const desktop = useMediaQuery({ minWidth: 1024 });
   const tablet = useMediaQuery({ minWidth: 768 });
   const { order, modal, setModal, reset, product, setProduct } = useProducts({
-    desktop,
+    tablet,
   });
   return (
     <>
@@ -43,7 +43,7 @@ function App() {
           ) : (
             <EmptyCart />
           )}
-          {modal && <Modal active={modal} item={order} onClose={reset} />}
+          {modal && <Modal tablet={tablet} item={order} onClose={reset} />}
         </div>
         <Footer />
       </div>
