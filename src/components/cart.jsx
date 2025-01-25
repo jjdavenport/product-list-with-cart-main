@@ -1,8 +1,7 @@
 import icon from "../assets/icon-carbon-neutral.svg";
-import Modal from "./modal";
 import CartItem from "./cart-item";
 
-const Cart = ({ modal, onClick, onClose, order }) => {
+const Cart = ({ onClick, order }) => {
   return (
     <>
       <section className="flex h-fit flex-col gap-2 rounded-lg bg-white p-4">
@@ -33,7 +32,6 @@ const Cart = ({ modal, onClick, onClose, order }) => {
           Confirm order
         </button>
       </section>
-      {modal && <Modal item={order} onClose={onClose} />}
     </>
   );
 };

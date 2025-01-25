@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useProducts = () => {
+const useProducts = ({ desktop }) => {
   const [order, setOrder] = useState([]);
   const [modal, setModal] = useState(false);
   const reset = () => {
@@ -9,10 +9,10 @@ const useProducts = () => {
   };
 
   useEffect(() => {
-    modal
+    !desktop && modal
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
-  }, [modal]);
+  }, [modal, desktop]);
 
   const [product, setProduct] = useState({
     id: new Date(),

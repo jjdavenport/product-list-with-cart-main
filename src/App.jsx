@@ -6,11 +6,14 @@ import data from "./assets/data.json";
 import Product from "./components/product";
 import Cart from "./components/cart";
 import EmptyCart from "./components/empty-cart";
+import Modal from "./components/modal";
 
 function App() {
-  const { order, modal, setModal, reset, product, setProduct } = useProducts();
   const desktop = useMediaQuery({ minWidth: 1024 });
   const tablet = useMediaQuery({ minWidth: 768 });
+  const { order, modal, setModal, reset, product, setProduct } = useProducts({
+    desktop,
+  });
   return (
     <>
       <div className="flex h-full min-h-screen flex-col bg-roseC-50 ~sm/md:~gap-4/0">
@@ -36,15 +39,11 @@ function App() {
             </main>
           </div>
           {order.length > -1 ? (
-            <Cart
-              onClick={() => setModal(true)}
-              modal={modal}
-              onClose={reset}
-              order={order}
-            />
+            <Cart onClick={() => setModal(true)} active={modal} order={order} />
           ) : (
             <EmptyCart />
           )}
+          {modal && <Modal active={modal} item={order} onClose={reset} />}
         </div>
         <Footer />
       </div>
