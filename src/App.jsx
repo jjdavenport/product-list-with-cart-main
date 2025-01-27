@@ -11,10 +11,19 @@ import Modal from "./components/modal";
 function App() {
   const desktop = useMediaQuery({ minWidth: 1024 });
   const tablet = useMediaQuery({ minWidth: 768 });
-  const { order, modal, setModal, reset, incrementOrder, decrementOrder } =
-    useProducts({
-      tablet,
-    });
+  const {
+    order,
+    modal,
+    setModal,
+    reset,
+    incrementOrder,
+    decrementOrder,
+    deleteOrder,
+    buttons,
+    setButtons,
+  } = useProducts({
+    tablet,
+  });
   return (
     <>
       <div className="flex h-full min-h-screen flex-col bg-roseC-50 ~sm/md:~gap-4/0">
@@ -42,13 +51,26 @@ function App() {
                     price={i.price}
                     increment={incrementOrder}
                     decrement={decrementOrder}
+                    onDelete={deleteOrder}
+                    button={buttons[i.name] || false}
+                    setButton={(state) =>
+                      setButtons((prev) => ({
+                        ...prev,
+                        [i.name]: state,
+                      }))
+                    }
                   />
                 );
               })}
             </ul>
           </div>
           {order.length > 0 ? (
-            <Cart onClick={() => setModal(true)} active={modal} order={order} />
+            <Cart
+              onDelete={deleteOrder}
+              onClick={() => setModal(true)}
+              active={modal}
+              order={order}
+            />
           ) : (
             <EmptyCart />
           )}

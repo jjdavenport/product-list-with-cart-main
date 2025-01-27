@@ -8,8 +8,7 @@ const Modal = ({ onClose, item, tablet }) => {
 
   useEffect(() => {
     setIsOpen(true);
-    console.log(item);
-  }, [item]);
+  }, []);
 
   const backgroundTransitions = useTransition(isOpen, {
     from: { opacity: 0 },

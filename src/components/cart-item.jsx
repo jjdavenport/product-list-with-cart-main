@@ -1,6 +1,6 @@
 import icon from "../assets/icon-remove-item.svg";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, onClick }) => {
   return (
     <li className="flex items-center justify-between py-2">
       <div className="flex flex-col">
@@ -13,7 +13,10 @@ const CartItem = ({ item }) => {
           </div>
         </div>
       </div>
-      <button className="flex h-4 w-4 items-center justify-center rounded-full outline outline-1 outline-roseC-400">
+      <button
+        onClick={() => onClick(item.name)}
+        className="flex h-4 w-4 items-center justify-center rounded-full outline outline-1 outline-roseC-400"
+      >
         <img className="object-contain" src={icon} />
       </button>
     </li>

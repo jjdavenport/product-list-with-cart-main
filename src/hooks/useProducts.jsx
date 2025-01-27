@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useProducts = ({ tablet }) => {
+  const [buttons, setButtons] = useState({});
   const [modal, setModal] = useState(false);
   const [order, setOrder] = useState([]);
 
@@ -30,8 +31,19 @@ const useProducts = ({ tablet }) => {
     );
   };
 
+  const deleteOrder = (productName) => {
+    setOrder((prevOrder) =>
+      prevOrder.filter((item) => item.name !== productName),
+    );
+    setButtons((prevStates) => ({
+      ...prevStates,
+      [productName]: false,
+    }));
+  };
+
   const reset = () => {
     setOrder([]);
+    setButtons({});
     setModal(false);
   };
 
@@ -48,6 +60,9 @@ const useProducts = ({ tablet }) => {
     reset,
     decrementOrder,
     incrementOrder,
+    deleteOrder,
+    buttons,
+    setButtons,
   };
 };
 

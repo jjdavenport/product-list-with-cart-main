@@ -1,6 +1,5 @@
 import Button from "./button";
 import QuantityButton from "./quantity-button";
-import { useState } from "react";
 
 const Product = ({
   img,
@@ -10,9 +9,9 @@ const Product = ({
   quantity,
   decrement,
   increment,
+  button,
+  setButton,
 }) => {
-  const [button, setButton] = useState(quantity);
-
   const toggle = () => {
     setButton(!button);
   };

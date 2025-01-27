@@ -1,7 +1,7 @@
 import icon from "../assets/icon-carbon-neutral.svg";
 import CartItem from "./cart-item";
 
-const Cart = ({ onClick, order }) => {
+const Cart = ({ onClick, order, onDelete }) => {
   return (
     <>
       <section className="flex h-fit flex-col gap-4 rounded-xl bg-white px-8 py-6">
@@ -10,7 +10,7 @@ const Cart = ({ onClick, order }) => {
         </h2>
         <ul className="flex flex-col gap-2 divide-y divide-roseC-100">
           {order.map((i, index) => (
-            <CartItem key={index} item={i} />
+            <CartItem onClick={onDelete} key={index} item={i} />
           ))}
         </ul>
         <div className="flex items-center justify-between text-roseC-900">
