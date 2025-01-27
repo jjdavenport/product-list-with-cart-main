@@ -2,20 +2,39 @@ import Button from "./button";
 import QuantityButton from "./quantity-button";
 import { useState } from "react";
 
-const Product = ({ img, name, price, category }) => {
-  const [button, setButton] = useState(false);
+const Product = ({
+  img,
+  name,
+  price,
+  category,
+  quantity,
+  decrement,
+  increment,
+}) => {
+  const [button, setButton] = useState(quantity);
+
   const toggle = () => {
     setButton(!button);
   };
 
+  const handleIncrement = () => {
+    increment({ name, price, category, img });
+    setButton(true);
+  };
+
+  const handleDecrement = () => {
+    decrement(name);
+    if (quantity === 0) setButton(false);
+  };
+
   return (
     <>
-      <article className="flex flex-col items-center ~sm/md:~gap-2/0">
+      <li className="flex flex-col items-center ~sm/md:~gap-2/0">
         <img
           src={img}
           className={`${
             button ? "outline-offset-0 outline-redC" : "outline-transparent"
-          } rounded-lg outline outline-2 transition-all duration-300 ease-in-out`}
+          } rounded-lg object-cover object-center outline outline-2 transition-all duration-300 ease-in-out`}
         />
         <div className="relative flex h-12 w-full justify-center ~sm/md:~-mt-8/6">
           <div
@@ -30,7 +49,11 @@ const Product = ({ img, name, price, category }) => {
               button ? "z-20 scale-100 opacity-100" : "z-10 scale-90 opacity-0"
             }`}
           >
-            <QuantityButton onClick={toggle} />
+            <QuantityButton
+              quantity={quantity}
+              onIncrement={handleIncrement}
+              onDecrement={handleDecrement}
+            />
           </div>
         </div>
         <div className="flex w-full flex-col items-start">
@@ -40,7 +63,7 @@ const Product = ({ img, name, price, category }) => {
           </span>
           <span className="font-semibold text-redC">${price.toFixed(2)}</span>
         </div>
-      </article>
+      </li>
     </>
   );
 };

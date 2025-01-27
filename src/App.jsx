@@ -11,34 +11,43 @@ import Modal from "./components/modal";
 function App() {
   const desktop = useMediaQuery({ minWidth: 1024 });
   const tablet = useMediaQuery({ minWidth: 768 });
-  const { order, modal, setModal, reset, product, setProduct } = useProducts({
-    tablet,
-  });
+  const { order, modal, setModal, reset, incrementOrder, decrementOrder } =
+    useProducts({
+      tablet,
+    });
   return (
     <>
       <div className="flex h-full min-h-screen flex-col bg-roseC-50 ~sm/md:~gap-4/0">
         <div className="flex flex-1 flex-col gap-8 text-base ~sm/xl:~px-4/28 ~sm/xl:~py-4/20 md:flex-row">
           <div className="flex flex-col gap-8">
             <Header />
-            <main className="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
-              {data.map((i, index) => (
-                <Product
-                  key={index}
-                  img={
-                    desktop
-                      ? i.image.desktop
-                      : tablet
-                        ? i.image.tablet
-                        : i.image.mobile
-                  }
-                  category={i.category}
-                  name={i.name}
-                  price={i.price}
-                />
-              ))}
-            </main>
+            <ul className="flex flex-col gap-6 md:grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+              {data.map((i, index) => {
+                const orderItem = order.find((item) => item.name === i.name);
+                const quantity = orderItem ? orderItem.quantity : 0;
+                return (
+                  <Product
+                    key={index}
+                    img={
+                      desktop
+                        ? i.image.desktop
+                        : tablet
+                          ? i.image.tablet
+                          : i.image.mobile
+                    }
+                    thumbnail={i.thumbnail}
+                    category={i.category}
+                    name={i.name}
+                    quantity={quantity}
+                    price={i.price}
+                    increment={incrementOrder}
+                    decrement={decrementOrder}
+                  />
+                );
+              })}
+            </ul>
           </div>
-          {order.length > -1 ? (
+          {order.length > 0 ? (
             <Cart onClick={() => setModal(true)} active={modal} order={order} />
           ) : (
             <EmptyCart />

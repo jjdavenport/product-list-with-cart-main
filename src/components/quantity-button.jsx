@@ -1,21 +1,9 @@
-import { useState } from "react";
-
-const QuantityButton = ({ onClick }) => {
-  const [count, setCount] = useState(0);
-
-  const plus = () => {
-    setCount((prev) => prev + 1);
-  };
-
-  const minus = () => {
-    count === 0 ? onClick() : setCount((prev) => prev - 1);
-  };
-
+const QuantityButton = ({ onIncrement, onDecrement, quantity }) => {
   return (
     <div className="z-10 flex h-fit w-[170px] items-center justify-between rounded-full bg-redC px-4 py-[10px]">
       <button
-        onClick={minus}
-        className="group flex h-5 w-5 items-center justify-center rounded-full border-2 border-roseC-50 transition-colors duration-300 ease-in-out hover:bg-roseC-50"
+        onClick={onDecrement}
+        className="group flex h-5 w-5 items-center justify-center rounded-full border-2 border-roseC-50 transition-colors duration-300 ease-in-out hover:bg-roseC-50 focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -27,10 +15,10 @@ const QuantityButton = ({ onClick }) => {
           <path d="M0 .375h10v1.25H0V.375Z" />
         </svg>
       </button>
-      <span className="text-roseC-50">{count}</span>
+      <span className="text-roseC-50">{quantity}</span>
       <button
-        onClick={plus}
-        className="group flex h-5 w-5 items-center justify-center rounded-full border-2 border-roseC-50 transition-colors duration-300 ease-in-out hover:bg-roseC-50"
+        onClick={onIncrement}
+        className="group flex h-5 w-5 items-center justify-center rounded-full border-2 border-roseC-50 transition-colors duration-300 ease-in-out hover:bg-roseC-50 focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
