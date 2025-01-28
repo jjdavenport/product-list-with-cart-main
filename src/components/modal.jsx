@@ -29,6 +29,10 @@ const Modal = ({ onClose, order, tablet }) => {
     setTimeout(onClose, 310);
   };
 
+  const total = order
+    .reduce((total, item) => total + item.quantity * item.price, 0)
+    .toFixed(2);
+
   return (
     <>
       {backgroundTransitions(
@@ -46,18 +50,18 @@ const Modal = ({ onClose, order, tablet }) => {
             <div className="pointer-events-none fixed inset-0 z-50 flex items-end justify-center md:items-center">
               <animated.dialog
                 style={styles}
-                className="pointer-events-auto z-50 flex w-full flex-col gap-6 rounded-b-none rounded-t-xl outline-none ~sm/xl:~p-6/8 md:aspect-square md:max-h-screen md:w-5/12 md:max-w-screen-sm md:rounded-lg"
+                className="pointer-events-auto z-50 flex w-full flex-col rounded-b-none rounded-t-xl outline-none ~sm/xl:~gap-6/8 ~sm/xl:~p-6/10 md:aspect-square md:max-h-screen md:w-6/12 md:max-w-screen-sm md:rounded-xl lg:w-5/12"
                 open
               >
                 <img className="w-2/12 md:w-1/12" src={confirmed} />
-                <div className="flex flex-col gap-2">
-                  <span className="flex flex-col font-bold text-roseC-900 ~sm/xl:~text-3xl/4xl md:flex-row md:gap-2">
+                <div className="flex flex-col ~sm/xl:~gap-4/6">
+                  <span className="flex flex-col font-bold text-roseC-900 ~sm/xl:~text-3xl/5xl ~sm/xl:~gap-2/3 md:flex-row">
                     Order <span>Confirmed</span>
                   </span>
                   <p className="text-roseC-500">We hope you enjoy your food!</p>
                 </div>
-                <div className="flex flex-1 flex-col justify-between gap-4 rounded-lg bg-roseC-50 ~sm/xl:~p-2/4">
-                  <ul className="flex max-h-96 flex-col gap-2 divide-y divide-roseC-100">
+                <div className="flex flex-1 flex-col justify-between rounded-lg bg-roseC-50 ~sm/xl:~gap-4/8 ~sm/xl:~px-4/8 ~sm/xl:~pt-2/3 ~sm/xl:~pb-4/8">
+                  <ul className="flex flex-col divide-y divide-roseC-100 border-b border-roseC-100">
                     {order.map((i, index) => (
                       <ModalItem key={index} item={i} />
                     ))}
@@ -66,14 +70,14 @@ const Modal = ({ onClose, order, tablet }) => {
                     <span className="text-roseC-500 ~sm/xl:~text-sm/base">
                       Order total
                     </span>
-                    <span className="font-bold text-roseC-900 ~sm/xl:~text-xl/2xl">
-                      $47.66
+                    <span className="font-bold text-roseC-900 ~sm/xl:~text-xl/3xl">
+                      ${total}
                     </span>
                   </div>
                 </div>
                 <button
                   onClick={handleClose}
-                  className="w-full rounded-full bg-redC p-3 text-white transition-colors duration-300 ease-in-out hover:bg-hoverButton"
+                  className="w-full rounded-full bg-redC text-white transition-colors duration-300 ease-in-out hover:bg-hoverButton ~sm/xl:~p-3/4"
                 >
                   Start New Order
                 </button>

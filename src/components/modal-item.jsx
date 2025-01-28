@@ -1,36 +1,30 @@
-import { useEffect } from "react";
-
 const ModalItem = ({ item }) => {
-  useEffect(() => {
-    console.log(item);
-  }, [item]);
-
   const total = (item.quantity * item.price).toFixed(2);
 
   return (
     <>
-      <li className="flex items-center justify-between py-2">
-        <div className="flex w-full items-center gap-2">
+      <li className="flex items-center justify-between ~sm/xl:~py-2/4">
+        <div className="flex w-full items-center ~sm/xl:~gap-2/4">
           <img
-            className="w-2/12 rounded-lg object-contain md:w-2/12"
+            className="w-2/12 rounded-md object-contain md:w-2/12"
             src={item.thumbnail}
           />
           <div className="flex flex-col py-1">
-            <span className="font-semibold text-roseC-900 ~sm/xl:~text-sm/base">
+            <span className="font-semibold text-roseC-900 ~sm/xl:~text-sm/lg">
               {item.name}
             </span>
             <div className="flex gap-4">
-              <span className="font-semibold text-redC ~sm/xl:~text-sm/base">
+              <span className="font-semibold text-redC ~sm/xl:~text-sm/lg">
                 {item.quantity}x
               </span>
-              <span className="text-roseC-500 ~sm/xl:~text-sm/base">
+              <span className="text-roseC-500 ~sm/xl:~text-sm/lg">
                 @ ${item.price.toFixed(2)}
               </span>
             </div>
           </div>
         </div>
         <div className="flex">
-          <span className="font-semibold text-roseC-900 ~sm/xl:~text-base/lg">
+          <span className="font-semibold text-roseC-900 ~sm/xl:~text-base/xl">
             ${total}
           </span>
         </div>
