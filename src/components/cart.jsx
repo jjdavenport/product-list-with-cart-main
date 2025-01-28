@@ -4,11 +4,11 @@ import CartItem from "./cart-item";
 const Cart = ({ onClick, order, onDelete }) => {
   return (
     <>
-      <section className="flex h-fit flex-col gap-4 rounded-xl bg-white px-8 py-6">
+      <aside className="flex h-fit flex-col gap-4 rounded-xl bg-white px-6 py-6">
         <h2 className="text-2xl font-bold text-redC">
-          Your Cart ({!order ? order.items : 7})
+          Your Cart ({order.length})
         </h2>
-        <ul className="flex flex-col gap-2 divide-y divide-roseC-100">
+        <ul className="flex flex-col gap-2 divide-y divide-roseC-100 border-b border-b-roseC-100">
           {order.map((i, index) => (
             <CartItem onClick={onDelete} key={index} item={i} />
           ))}
@@ -17,7 +17,7 @@ const Cart = ({ onClick, order, onDelete }) => {
           <span className="text-roseC-500">Order total</span>
           <span className="text-2xl font-bold">$47.66</span>
         </div>
-        <span className="flex justify-center gap-1 whitespace-nowrap rounded-lg bg-roseC-50 px-6 py-4 font-semibold text-roseC-500">
+        <span className="flex justify-center gap-1 whitespace-nowrap rounded-lg bg-roseC-50 px-10 py-4 text-sm font-semibold text-roseC-500">
           <img src={icon} />
           This is a <span className="text-roseC-900">carbon neutral</span>
           delivery
@@ -28,7 +28,7 @@ const Cart = ({ onClick, order, onDelete }) => {
         >
           Confirm order
         </button>
-      </section>
+      </aside>
     </>
   );
 };

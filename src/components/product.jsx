@@ -7,6 +7,7 @@ const Product = ({
   price,
   category,
   quantity,
+  thumbnail,
   decrement,
   increment,
   button,
@@ -17,7 +18,7 @@ const Product = ({
   };
 
   const handleIncrement = () => {
-    increment({ name, price, category, img });
+    increment({ name, price, category, img, thumbnail });
     setButton(true);
   };
 
