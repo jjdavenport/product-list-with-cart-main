@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import icon from "../assets/icon-carbon-neutral.svg";
 import CartItem from "./cart-item";
 
@@ -22,7 +23,7 @@ const Cart = ({ onClick, order, onDelete }) => {
           <span className="text-roseC-500">Order total</span>
           <span className="text-2xl font-bold">${totalPrice}</span>
         </div>
-        <span className="flex justify-center gap-1 whitespace-nowrap rounded-lg bg-roseC-50 px-10 py-4 text-sm font-semibold text-roseC-500">
+        <span className="flex justify-center gap-1 whitespace-nowrap rounded-lg bg-roseC-50 px-10 py-4 text-sm font-medium text-roseC-500">
           <img src={icon} />
           This is a <span className="text-roseC-900">carbon neutral</span>
           delivery
@@ -36,6 +37,12 @@ const Cart = ({ onClick, order, onDelete }) => {
       </aside>
     </>
   );
+};
+
+Cart.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  order: PropTypes.array.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default Cart;

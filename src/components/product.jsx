@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Button from "./button";
 import QuantityButton from "./quantity-button";
 
@@ -58,14 +59,26 @@ const Product = ({
         </div>
         <div className="flex w-full flex-col items-start">
           <span className="text-sm text-roseC-400">{category}</span>
-          <span className="whitespace-nowrap font-semibold text-roseC-900">
+          <span className="whitespace-nowrap font-medium text-roseC-900">
             {name}
           </span>
-          <span className="font-semibold text-redC">${price.toFixed(2)}</span>
+          <span className="font-medium text-redC">${price.toFixed(2)}</span>
         </div>
       </li>
     </>
   );
+};
+
+Product.propTypes = {
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+  increment: PropTypes.func.isRequired,
+  decrement: PropTypes.func.isRequired,
+  button: PropTypes.bool.isRequired,
+  setButton: PropTypes.func.isRequired,
 };
 
 export default Product;

@@ -1,5 +1,6 @@
 import { useTransition, animated } from "@react-spring/web";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import confirmed from "../assets/icon-order-confirmed.svg";
 import ModalItem from "./modal-item";
 
@@ -87,6 +88,12 @@ const Modal = ({ onClose, order, tablet }) => {
       )}
     </>
   );
+};
+
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  order: PropTypes.array.isRequired,
+  tablet: PropTypes.bool.isRequired,
 };
 
 export default Modal;

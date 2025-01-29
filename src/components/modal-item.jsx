@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const ModalItem = ({ item }) => {
   const total = (item.quantity * item.price).toFixed(2);
 
@@ -10,11 +12,11 @@ const ModalItem = ({ item }) => {
             src={item.thumbnail}
           />
           <div className="flex flex-col py-1">
-            <span className="font-semibold text-roseC-900 ~sm/xl:~text-sm/lg">
+            <span className="font-medium text-roseC-900 ~sm/xl:~text-sm/lg">
               {item.name}
             </span>
             <div className="flex gap-4">
-              <span className="font-semibold text-redC ~sm/xl:~text-sm/lg">
+              <span className="font-medium text-redC ~sm/xl:~text-sm/lg">
                 {item.quantity}x
               </span>
               <span className="text-roseC-500 ~sm/xl:~text-sm/lg">
@@ -24,7 +26,7 @@ const ModalItem = ({ item }) => {
           </div>
         </div>
         <div className="flex">
-          <span className="font-semibold text-roseC-900 ~sm/xl:~text-base/xl">
+          <span className="font-medium text-roseC-900 ~sm/xl:~text-base/xl">
             ${total}
           </span>
         </div>
@@ -32,6 +34,10 @@ const ModalItem = ({ item }) => {
       </li>
     </>
   );
+};
+
+ModalItem.propTypes = {
+  item: PropTypes.object.isRequired,
 };
 
 export default ModalItem;

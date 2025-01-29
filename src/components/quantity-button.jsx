@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const QuantityButton = ({ onIncrement, onDecrement, quantity }) => {
   return (
     <div className="z-10 flex h-fit w-[170px] items-center justify-between rounded-full bg-redC px-4 py-[10px]">
@@ -32,6 +34,12 @@ const QuantityButton = ({ onIncrement, onDecrement, quantity }) => {
       </button>
     </div>
   );
+};
+
+QuantityButton.propTypes = {
+  quantity: PropTypes.number.isRequired,
+  onIncrement: PropTypes.func.isRequired,
+  onDecrement: PropTypes.func.isRequired,
 };
 
 export default QuantityButton;

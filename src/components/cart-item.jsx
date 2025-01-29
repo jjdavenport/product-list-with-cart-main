@@ -1,9 +1,11 @@
+import PropTypes from "prop-types";
+
 const CartItem = ({ item, onClick }) => {
   const total = (item.quantity * item.price).toFixed(2);
   return (
     <li className="flex items-center justify-between py-2">
       <div className="flex flex-col">
-        <span className="font-semibold text-roseC-900">{item.name}</span>
+        <span className="font-medium text-roseC-900">{item.name}</span>
         <div className="flex gap-4">
           <span className="font-medium text-redC">{item.quantity}x</span>
           <div className="flex gap-2">
@@ -31,6 +33,11 @@ const CartItem = ({ item, onClick }) => {
       </button>
     </li>
   );
+};
+
+CartItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default CartItem;
