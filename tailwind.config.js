@@ -1,4 +1,5 @@
 import fluid, { extract, screens } from "fluid-tailwind";
+import scrollbar from "tailwind-scrollbar";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -27,5 +28,5 @@ export default {
       },
     },
   },
-  plugins: [fluid],
+  plugins: [fluid, scrollbar],
 };

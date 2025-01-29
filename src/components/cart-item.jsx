@@ -1,4 +1,5 @@
 const CartItem = ({ item, onClick }) => {
+  const total = (item.quantity * item.price).toFixed(2);
   return (
     <li className="flex items-center justify-between py-2">
       <div className="flex flex-col">
@@ -6,10 +7,8 @@ const CartItem = ({ item, onClick }) => {
         <div className="flex gap-4">
           <span className="font-medium text-redC">{item.quantity}x</span>
           <div className="flex gap-2">
-            <span className="text-roseC-300">@ ${item.price}</span>
-            <span className="font-medium text-roseC-500">
-              ${item.quantity * item.price}
-            </span>
+            <span className="text-roseC-300">@ ${item.price.toFixed(2)}</span>
+            <span className="font-medium text-roseC-500">${total}</span>
           </div>
         </div>
       </div>

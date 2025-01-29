@@ -21,9 +21,7 @@ function App() {
     deleteOrder,
     buttons,
     setButtons,
-  } = useProducts({
-    tablet,
-  });
+  } = useProducts();
   return (
     <>
       <div className="flex h-full min-h-screen flex-col bg-roseC-50 ~sm/md:~gap-4/0">

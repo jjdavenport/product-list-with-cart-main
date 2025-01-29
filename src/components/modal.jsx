@@ -50,7 +50,7 @@ const Modal = ({ onClose, order, tablet }) => {
             <div className="pointer-events-none fixed inset-0 z-50 flex items-end justify-center md:items-center">
               <animated.dialog
                 style={styles}
-                className="pointer-events-auto z-50 flex w-full flex-col rounded-b-none rounded-t-xl outline-none ~sm/xl:~gap-6/8 ~sm/xl:~p-6/10 md:aspect-square md:max-h-screen md:w-6/12 md:max-w-screen-sm md:rounded-xl lg:w-5/12"
+                className="pointer-events-auto z-50 flex max-h-screen w-full flex-col rounded-b-none rounded-t-xl outline-none ~sm/xl:~gap-6/8 ~sm/xl:~p-6/10 md:aspect-square md:max-h-screen md:w-6/12 md:max-w-screen-sm md:rounded-xl xl:w-5/12"
                 open
               >
                 <img className="w-2/12 md:w-1/12" src={confirmed} />
@@ -60,13 +60,13 @@ const Modal = ({ onClose, order, tablet }) => {
                   </span>
                   <p className="text-roseC-500">We hope you enjoy your food!</p>
                 </div>
-                <div className="flex flex-1 flex-col justify-between rounded-lg bg-roseC-50 ~sm/xl:~gap-4/8 ~sm/xl:~px-4/8 ~sm/xl:~pt-2/3 ~sm/xl:~pb-4/8">
-                  <ul className="flex flex-col divide-y divide-roseC-100 border-b border-roseC-100">
+                <div className="flex flex-1 flex-col justify-between rounded-lg bg-roseC-50 ~sm/xl:~pl-4/8">
+                  <ul className="flex max-h-[15rem] flex-col overflow-y-auto scrollbar scrollbar-track-roseC-100 scrollbar-thumb-roseC-900 ~sm/xl:~py-4/0 ~sm/xl:~pr-4/8 md:h-[17rem] md:max-h-none lg:h-[20rem]">
                     {order.map((i, index) => (
                       <ModalItem key={index} item={i} />
                     ))}
                   </ul>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between ~sm/xl:~pt-4/2 ~sm/xl:~pr-4/8 ~sm/xl:~pb-4/8">
                     <span className="text-roseC-500 ~sm/xl:~text-sm/base">
                       Order total
                     </span>
@@ -77,7 +77,7 @@ const Modal = ({ onClose, order, tablet }) => {
                 </div>
                 <button
                   onClick={handleClose}
-                  className="w-full rounded-full bg-redC text-white transition-colors duration-300 ease-in-out hover:bg-hoverButton ~sm/xl:~p-3/4"
+                  className="w-full rounded-full bg-redC text-white transition-colors duration-300 ease-in-out ~sm/xl:~p-3/4 hover:bg-hoverButton"
                 >
                   Start New Order
                 </button>

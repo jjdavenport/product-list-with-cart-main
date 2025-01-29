@@ -3,7 +3,7 @@ const ModalItem = ({ item }) => {
 
   return (
     <>
-      <li className="flex items-center justify-between ~sm/xl:~py-2/4">
+      <li className="flex items-center justify-between border-b border-roseC-100 ~sm/xl:~py-2/4">
         <div className="flex w-full items-center ~sm/xl:~gap-2/4">
           <img
             className="w-2/12 rounded-md object-contain md:w-2/12"

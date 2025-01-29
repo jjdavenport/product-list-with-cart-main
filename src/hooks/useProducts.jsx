@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useProducts = ({ tablet }) => {
+const useProducts = () => {
   const [buttons, setButtons] = useState({});
   const [modal, setModal] = useState(false);
   const [order, setOrder] = useState([]);
@@ -48,10 +48,10 @@ const useProducts = ({ tablet }) => {
   };
 
   useEffect(() => {
-    !tablet && modal
+    modal
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
-  }, [modal, tablet]);
+  }, [modal]);
 
   return {
     order,
